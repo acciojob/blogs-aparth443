@@ -68,7 +68,7 @@ public class ImageService {
         int screenSize = xs*ys;
         int imageSize = xi*yi;
 
-        int ans = (int) Math.floor(screenSize/imageSize);
+        int ans = (int) (Math.floor(((double) (xs))/((double) (xi))) * Math.floor((double) (ys)/(double) (yi)));
         return ans;
     }
 }
