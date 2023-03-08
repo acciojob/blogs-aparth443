@@ -42,32 +42,32 @@ public class ImageService {
         int xs = 0;
         int ys = 0;
         int num = 0;
-        for(int i=0;i<dimensions.length();i++){
+        for(int i = 0; i<dimensions.length(); i++){
             if(dimensions.charAt(i) == 'X'){
                 xi = num;
                 num = 0;
                 continue;
             }
-            num = num*10 + (dimensions.charAt(i)-'0');
+            num *= 10;
+            num += (dimensions.charAt(i) - '0');
         }
         yi = num;
         num = 0;
-
-        for(int i=0;i<screenDimensions.length();i++){
+        for(int i = 0; i<screenDimensions.length(); i++){
             if(screenDimensions.charAt(i) == 'X'){
                 xs = num;
                 num = 0;
                 continue;
             }
-            num = num*10 + (screenDimensions.charAt(i)-'0');
+            num *= 10;
+            num += (screenDimensions.charAt(i) - '0');
         }
         ys = num;
-        num = 0;
 
-        int d = xi*yi;
-        int sd = xs*ys;
+        int screenSize = xs*ys;
+        int imageSize = xi*yi;
 
-        int ans = (int)sd/d;
+        int ans = (int) (Math.floor(((double) (xs))/((double) (xi))) * Math.floor((double) (ys)/(double) (yi)));
         return ans;
     }
 }
